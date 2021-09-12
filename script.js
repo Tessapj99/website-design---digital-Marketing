@@ -178,17 +178,17 @@ section2.appendChild(secright);
 main.appendChild(section2);
 
 
-let section3 = document.createElement("div");
+// let section3 = document.createElement("div");
 
-section3.style.cssText += `
-background-color:darkblue;
-margin-top:1cm;
-height:20vh;
-opacity:0.7;
-position:realtive;
+// section3.style.cssText += `
+// background-color:darkblue;
+// margin-top:1cm;
+// height:20vh;
+// opacity:0.7;
+// position:realtive;
 
-` ;
-main.appendChild(section3);
+// ` ;
+// main.appendChild(section3);
 
 // Onclick register
 let register = document.createElement("div");
@@ -371,7 +371,8 @@ cursor: pointer;
 
 const onClickSubmitInLoginModal = (e) => {
     e.preventDefault();
-    alertOnClickL();
+    //alertOnClickL();
+    window.alert("mail ahs been sent");
   LogIn.style.display = "none";
   main.style.opacity = 1;
 };
@@ -391,6 +392,112 @@ LogIn.appendChild(loginModal);
 LogIn.appendChild(loginForm);
 loginForm.appendChild(loginInput);
 loginForm.appendChild(passwordL);
+loginForm.appendChild(confirmPasswordL);
 loginForm.appendChild(submitBtnL);
 
 main.appendChild(LogIn);
+
+
+let section4 = document.createElement("div");
+section4.style.cssText += `
+display: flex;
+justify-content:flex-end;`;
+
+let leftSec = document.createElement("div");
+leftSec.style.cssText += `
+background-color:gray;
+height:100vh;
+width:50vw;
+margin-top:1cm;
+`;
+section4.appendChild(leftSec);
+
+let leftBox = document.createElement("div");
+                                           
+leftBox.style.display = "none";
+leftBox.style.cssText += `
+position: absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+max-width: 100%;
+padding: 5rem;
+background-color: white;
+`;
+
+let head = document.createElement("h2");
+head.innerHTML = "Book your Appoinment Now";
+head.style.textAlign = "left";
+head.style.color = "white";
+
+let infoForm = document.createElement("form");
+infoForm.style.cssText += `
+display: flex;
+flex-direction: column;
+row-gap: 1.2rem;
+padding: 0 10rem;
+`;
+
+
+let tag1 = document.createElement("h4");
+tag1.innerHTML = "Name";
+tag1.style.textAlign = "left";
+
+let info1 = document.createElement("input");
+info1.type = "text";
+info1.placeholder = "yourmailid@example.com";
+info1.style.cssText += `
+border-radius: 0.5rem;
+height: 2rem;
+text-align: center;
+`;
+let tag2 = document.createElement("h4");
+tag2.innerHTML = "Place of Issue";
+tag2.style.textAlign = "left";
+
+let info2 = document.createElement("input");
+info2.type = "text";
+info2.placeholder = "select a city";
+info2.style.cssText += `
+border-radius: 0.5rem;
+height: 2rem;
+text-align: center;
+`;
+
+const onClickBook = () => {
+  leftBox.style.display = "block";
+  main.style.opacity = 0.7;
+};
+
+CreateElementAndAppend(
+  "Book Now",
+  `border-radius:4.5rem;padding:1.2rem;cursor: pointer;margin-bottom: 1.2rem;margin-left:20px;border-color:transparent;background-color:DarkBlue;color:white;font-size:1rem;font-family:arial;`,
+  onClickBook,
+  `button`,
+  infoForm
+);
+
+const onClickBoooking = (e) => {
+  e.preventDefault();
+  //alertOnClickL();
+  window.alert("mail ahs been sent");
+  leftBox.style.display = "none";
+  main.style.opacity = 1;
+};
+
+leftBox.addEventListener("click", onClickBoooking);
+
+
+
+leftBox.appendChild(head);
+leftBox.appendChild(infoForm);
+infoForm.appendChild(tag1);
+infoForm.appendChild(info1);
+infoForm.appendChild(tag2);
+infoForm.appendChild(info2);
+
+leftSec.appendChild(leftBox);
+section4.appendChild(leftSec);
+main.appendChild(section4);
+
+
