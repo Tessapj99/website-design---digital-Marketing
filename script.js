@@ -262,12 +262,18 @@ padding:0.7rem;
 margin-bottom: 1.2rem;
 border-color:transparent;
 background-color:DarkBlue;
+color:white;
 font-size:16px;
 cursor: pointer;
 `;
 
+const alertOnClickR = () => {
+  alert("I am an alert box!");
+};
+
 const onClickSubmitInRegisterModal = (e) => {
   e.preventDefault();
+  alertOnClickR();
   register.style.display = "none";
   main.style.opacity = 1;
 };
@@ -358,14 +364,23 @@ padding:0.7rem;
 margin-bottom: 1.2rem;
 border-color:transparent;
 background-color:DarkBlue;
+color:white;
 font-size:16px;
 cursor: pointer;
 `;
 
 const onClickSubmitInLoginModal = (e) => {
-  e.preventDefault();
+    e.preventDefault();
+    alertOnClickL();
   LogIn.style.display = "none";
   main.style.opacity = 1;
+};
+
+
+// alert on click 
+
+const alertOnClickL = () => {
+    alert("I am an alert box!");
 };
 
 submitBtnL.addEventListener("click", onClickSubmitInLoginModal);
