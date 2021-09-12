@@ -98,7 +98,7 @@ display:flex;
 width: 100%;
 margin-top:10rem;
 coloumn-gap:20px;
-align-items:center;
+align-items:center;/
 `;
 
 
@@ -122,17 +122,29 @@ CreateElementAndAppend(
   "p",
   secleft
 );
+
+const onClickRegister = () => {
+  register.style.display = "block";
+  main.style.opacity = 0.7;
+};
+
 CreateElementAndAppend(
   "Register",
   `border-radius:4.5rem;padding:1.2rem;cursor: pointer;margin-bottom: 1.2rem;border-color:transparent;background-color:DarkBlue;color:white;font-size:1rem;font-family:arial;`,
-  null,
+  onClickRegister,
   `button`,
   secleft
 );
+
+const onClickLogin = () => {
+  LogIn.style.display = "block";
+  main.style.opacity = 0.7;
+};
+
 CreateElementAndAppend(
   "Log In",
   `border-radius:4.5rem;padding:1.2rem;cursor: pointer;margin-bottom: 1.2rem;margin-left:20px;border-color:transparent;background-color:DarkBlue;color:white;font-size:1rem;font-family:arial;`,
-  null,
+  onClickLogin,
   `button`,
   secleft
 );
@@ -171,10 +183,199 @@ let section3 = document.createElement("div");
 section3.style.cssText += `
 background-color:darkblue;
 margin-top:1cm;
-height:20git vh;
-position:relative;
+height:20vh;
+opacity:0.7;
+position:realtive;
 
 ` ;
-
 main.appendChild(section3);
 
+// Onclick register
+let register = document.createElement("div");
+register.style.display = "none";
+register.style.cssText += `
+position: absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+max-width: 100%;
+padding: 5rem;
+background-color: white;
+`;
+
+
+let registerModal = document.createElement("h1");
+registerModal.innerHTML = "Register";
+registerModal.style.textAlign = "center";
+
+
+let registerForm = document.createElement("form");
+registerForm.style.cssText += `
+display: flex;
+flex-direction: column;
+row-gap: 1.2rem;
+padding: 0 10rem;
+`;
+
+let registerInput = document.createElement("input");
+registerInput.type = "text";
+registerInput.placeholder = "yourmailid@example.com";
+registerInput.style.cssText += `
+border-radius: 0.5rem;
+height: 2rem;
+text-align: center;
+`;
+
+let closeBtnR = document.createElement("span");
+closeBtnR.innerHTML = "&times";
+closeBtnR.style.cssText += `
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+`;
+
+let password = document.createElement("input");
+password.type = "password";
+password.placeholder = "*******";
+password.style.cssText += `
+border-radius: 0.5rem;
+height: 2rem;
+text-align: center;
+`;
+
+let confirmPassword = document.createElement("input");
+confirmPassword.type = "password";
+confirmPassword.placeholder = "*******";
+confirmPassword.style.cssText += `
+border-radius: 0.5rem;
+height: 2rem;
+text-align: center;
+`;
+
+let submitBtn = document.createElement("button");
+submitBtn.innerHTML = "Submit";
+submitBtn.style.cssText += `
+border-radius:1.5rem;
+padding:0.7rem;
+margin-bottom: 1.2rem;
+border-color:transparent;
+background-color:DarkBlue;
+font-size:16px;
+cursor: pointer;
+`;
+
+const onClickSubmitInRegisterModal = (e) => {
+  e.preventDefault();
+  register.style.display = "none";
+  main.style.opacity = 1;
+};
+
+submitBtn.addEventListener("click", onClickSubmitInRegisterModal);
+closeBtnR.addEventListener("click", onClickSubmitInRegisterModal);
+
+register.appendChild(closeBtnR);
+register.appendChild(registerModal);
+register.appendChild(registerForm);
+registerForm.appendChild(registerInput);
+registerForm.appendChild(password);
+registerForm.appendChild(submitBtn);
+
+main.appendChild(register);
+
+// onclick login 
+
+let LogIn = document.createElement("div");
+LogIn.style.display = "none";
+LogIn.style.cssText += `
+position: absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+max-width: 100%;
+padding: 5rem;
+background-color: white;
+`;
+
+
+
+let loginModal = document.createElement("h1");
+loginModal.innerHTML = "Register";
+loginModal.style.textAlign = "center";
+
+let loginForm = document.createElement("form");
+loginForm.style.cssText += `
+display: flex;
+flex-direction: column;
+row-gap: 1.2rem;
+padding: 0 10rem;
+`;
+
+let loginInput = document.createElement("input");
+loginInput.type = "text";
+loginInput.placeholder = "yourmailid@example.com";
+loginInput.style.cssText += `
+border-radius: 0.5rem;
+height: 2rem;
+text-align: center;
+`;
+
+let closeBtnL = document.createElement("span");
+closeBtnL.innerHTML = "&times";
+closeBtnL.style.cssText += `
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+`;
+
+
+let passwordL = document.createElement("input");
+passwordL.type = "password";
+passwordL.placeholder = "*******";
+passwordL.style.cssText += `
+border-radius: 0.5rem;
+height: 2rem;
+text-align: center;
+`;
+
+let confirmPasswordL = document.createElement("input");
+confirmPasswordL.type = "password";
+confirmPasswordL.placeholder = "*******";
+confirmPasswordL.style.cssText += `
+border-radius: 0.5rem;
+height: 2rem;
+text-align: center;
+`;
+
+let submitBtnL = document.createElement("button");
+submitBtnL.innerHTML = "Submit";
+submitBtnL.style.cssText += `
+border-radius:1.5rem;
+padding:0.7rem;
+margin-bottom: 1.2rem;
+border-color:transparent;
+background-color:DarkBlue;
+font-size:16px;
+cursor: pointer;
+`;
+
+const onClickSubmitInLoginModal = (e) => {
+  e.preventDefault();
+  LogIn.style.display = "none";
+  main.style.opacity = 1;
+};
+
+submitBtnL.addEventListener("click", onClickSubmitInLoginModal);
+closeBtnL.addEventListener("click", onClickSubmitInLoginModal);
+
+LogIn.appendChild(closeBtnL);
+LogIn.appendChild(loginModal);
+LogIn.appendChild(loginForm);
+loginForm.appendChild(loginInput);
+loginForm.appendChild(passwordL);
+loginForm.appendChild(submitBtnL);
+
+main.appendChild(LogIn);
