@@ -43,7 +43,7 @@ flex-shrink:1;
 
 let navright = document.createElement("div")
 navright.style.cssText +=
-  links + `margin-left: auto; padding-right:2cm;`;
+  links + `margin-left: auto; padding-right:0.5cm;`;
 
 const CreateElementAndAppend = (
   value,
@@ -110,7 +110,7 @@ padding-left:2rem;
 
 CreateElementAndAppend(
   "GRAPHIC DESIGNER",
-  `font-size: 2.7rem;font-family:arial;`,
+  `font-size: 2.7rem;color:Gray;font-family:arial;`,
   null,
   "h1",
   secleft
@@ -124,7 +124,7 @@ CreateElementAndAppend(
 );
 CreateElementAndAppend(
   "Register",
-  `border-radius:4.5rem;padding:1.2rem;cursor: pointer;margin-bottom: 1.2rem;border-color:transparent;background-color:#8EE5D1;font-size:1rem;font-family:arial;`,
+  `border-radius:4.5rem;padding:1.2rem;cursor: pointer;margin-bottom: 1.2rem;border-color:transparent;background-color:DarkBlue;color:white;font-size:1rem;font-family:arial;`,
   null,
   `button`,
   secleft
@@ -138,7 +138,7 @@ CreateElementAndAppend(
 );
 CreateElementAndAppend(
   "type here....",
-  `border-radius:1rem;padding:1.2rem;cursor: pointer;margin-bottom: 1.2rem;margin-left:20px;border-color:black;font-size:1rem;font-family:arial;`,
+  `border-radius:1rem;padding:1.2rem;cursor: pointer;margin-bottom: 1.2rem;margin-left:20px;border-color:blue;font-size:1rem;font-family:arial;`,
   null,
   `input`,
   secleft
@@ -155,7 +155,7 @@ rightimg.src = "dx_image-2.jpg";
 rightimg.style.cssText += `
 width:50vw;
 height: 100%;
-padding-right: 2rem;
+padding-right:0.2cm;
 flex-shrink:1;
 `;
 
@@ -165,4 +165,16 @@ section2.appendChild(secright);
 
 main.appendChild(section2);
 
+
+let section3 = document.createElement("div");
+
+section3.style.cssText += `
+background-color:darkblue;
+margin-top:1cm;
+height:20git vh;
+position:relative;
+
+` ;
+
+main.appendChild(section3);
 
